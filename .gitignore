@@ -1,0 +1,11 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs
+/ACEBackEnd/.vs/ACEBackEnd/CopilotIndices/17.13.433.20974
+/ACEBackEnd/.vs/ACEBackEnd/config
+/ACEBackEnd/.vs/ACEBackEnd/FileContentIndex
+/ACEBackEnd/bin/Debug/net8.0
+/ACEBackEnd/.vs/ACEBackEnd/v17
+/ACEBackEnd/obj
