@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using ACEBackEnd.DataAccess;
 
 namespace ACEBackEnd.Controllers;
 
@@ -12,20 +13,23 @@ public class WeatherForecastController : ControllerBase
     };
 
     private readonly ILogger<WeatherForecastController> _logger;
+    private readonly DataAccessService _dataAccess;
 
-    public WeatherForecastController(ILogger<WeatherForecastController> logger)
+    public WeatherForecastController(ILogger<WeatherForecastController> logger, DataAccessService dataAccess)
     {
         _logger = logger;
+        _dataAccess = dataAccess;
     }
 
     [HttpGet(Name = "GetWeatherForecast")]
-    public IEnumerable<WeatherForecast> Get()
+    public async Task<IEnumerable<WeatherForecast>> GetAsync()
     {
+        var data = await _dataAccess.GetDataAsync();
         return Enumerable.Range(1, 5).Select(index => new WeatherForecast
         {
             Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
             TemperatureC = Random.Shared.Next(-20, 55),
-            Summary = Summaries[Random.Shared.Next(Summaries.Length)]
+            Summary = data[Random.Shared.Next(data.Count-1)]?.Type
         })
         .ToArray();
     }
