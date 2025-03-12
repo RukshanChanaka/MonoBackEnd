@@ -12,3 +12,5 @@
 /ACEBackEnd/.vs/ACEBackEnd/DesignTimeBuild
 /bin/Debug/net8.0
 /obj
+/bin/Release/net8.0
+*.json
