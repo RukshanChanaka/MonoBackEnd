@@ -14,3 +14,4 @@
 /obj
 /bin/Release/net8.0
 *.json
+/bin/Release
