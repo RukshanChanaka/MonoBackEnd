@@ -1,1 +1,1 @@
-web: dotnet exec ./ACEBackEnd.dll --urls http://0.0.0.0:5000/
+web: dotnet ./publish/ACEBackEnd.dll --urls http://0.0.0.0:5000/
