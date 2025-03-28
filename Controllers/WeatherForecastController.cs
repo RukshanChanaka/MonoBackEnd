@@ -24,12 +24,13 @@ public class WeatherForecastController : ControllerBase
     [HttpGet(Name = "GetWeatherForecast")]
     public async Task<IEnumerable<WeatherForecast>> GetAsync()
     {
+        string myAppKey = Environment.GetEnvironmentVariable("ENV-VAR");
         //var data =  await _dataAccess.GetDataAsync();
         return Enumerable.Range(1, 5).Select(index => new WeatherForecast
         {
             Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
             TemperatureC = Random.Shared.Next(-20, 55),
-            Summary = Summaries[Random.Shared.Next(Summaries.Length - 1)]
+            Summary = Summaries[Random.Shared.Next(Summaries.Length - 1)] + myAppKey
         })
         .ToArray();
     }
